@@ -11,8 +11,8 @@ pids
 .DS_Store
 
 # modules
+node_modules
 dist
 typings
-node_modules
 nbproject
 .idea
