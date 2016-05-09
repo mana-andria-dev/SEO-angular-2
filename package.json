@@ -1,0 +1,39 @@
+{
+  "name": "seo-angular2-universal",
+  "version": "1.0.0",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "cp": "copyfiles -f",
+    "clean:dist": "del-cli ./dist",
+    "copy:vendor": "npm run cp ./node_modules/es6-shim/es6-shim.min.js ./node_modules/es6-shim/es6-shim.map ./node_modules/systemjs/dist/system-polyfills.js ./node_modules/systemjs/dist/system-polyfills.js.map  ./node_modules/angular2/es6/dev/src/testing/shims_for_IE.js ./node_modules/angular2/bundles/angular2-polyfills.js ./node_modules/systemjs/dist/system.src.js ./node_modules/rxjs/bundles/Rx.js ./node_modules/angular2/bundles/angular2.dev.js ./node_modules/angular2/bundles/router.dev.js ./node_modules/angular2/bundles/http.dev.js ./dist/vendor",
+    "copy:html": "npm run cp ./src/index.ng2.html ./dist",
+    "build:dev": "npm run clean:dist && npm run copy:vendor && npm run copy:html && tsc",
+    "pm2:dev": "cd ./dist && pm2 start ./server/server.js --watch",
+    "postinstall": "typings install",
+    "start": "npm run build:dev && npm run pm2:dev && npm run tsc:w"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "angular2": "2.0.0-beta.15",
+    "angular2-universal": "0.98.3",
+    "body-parser": "^1.15.0",
+    "brace-expansion": "^1.1.4",
+    "copyfiles": "0.2.1",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "path-is-absolute": "^1.0.0",
+    "pm2": "^1.1.2",
+    "preboot": "^2.0.5",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "0.19.25",
+    "zone.js": "0.6.11"
+  },
+  "devDependencies": {
+    "del-cli": "^0.2.0",
+    "typescript": "^1.8.9",
+    "typings": "^0.7.12"
+  }
+}
