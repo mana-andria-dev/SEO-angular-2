@@ -9,7 +9,7 @@ import {SeoModel} from '../seo/seo.model';
     providers: [],
     selector: 'home',
     template: `
-        Home Component
+        Home Component Andriamamonjy Laza
     `
 })
 export class HomeComponent {
